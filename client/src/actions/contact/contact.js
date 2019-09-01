@@ -12,7 +12,7 @@ import {
             deletedContactActionSuccess,
             failedDeleteContactAction,
             searchContactActionSuccess
-        } from "./contact_epic";
+        } from "./actions";
 
 export const getAllContacts = () => {
 
