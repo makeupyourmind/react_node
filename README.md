@@ -5,6 +5,6 @@ database - MongoDB
 
 check .env_example in root folder and create a .env file
 
-cd client - yarn start
+cd client - yart install -> yarn start
 
-cd .. - npm start
+cd .. - npm install -> npm start

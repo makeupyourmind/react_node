@@ -14,7 +14,6 @@
 }
 
 .button{
-    border: 1px solid red;
     margin: 30px auto; 
     width: 200px;
 }
@@ -22,4 +21,14 @@
 .label {
     height: 20px;
     margin-top: 25px; 
+}
+
+.navigation {
+    text-decoration: none;
+    color: white;
+}
+
+.loading{
+    margin-top: 10px; 
+    text-align: center;
 }

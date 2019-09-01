@@ -42,6 +42,7 @@ export default function(state = initialState, action) {
         }
         case ACTION.EDIT_CONTACT_SUCCESS : {
             return {
+                ...state,
                 contact: action.payload
             }
         }

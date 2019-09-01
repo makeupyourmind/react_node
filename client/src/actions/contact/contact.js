@@ -54,7 +54,6 @@ export const getContactById = (id) => {
 
 export const editContactById = (id, name, age, number) => {
     return dispatch => {
-        console.log("token", localStorage.getItem('token'));
         const data = {
             name, 
             age,

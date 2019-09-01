@@ -10,6 +10,7 @@ import TableRow from '@material-ui/core/TableRow';
 import withStyles from "@material-ui/core/styles/withStyles";
 import '../../styles/contact.css'
 import { TextField, Button, Container } from '@material-ui/core';
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 
 const StyledTableCell = withStyles(theme => ({
@@ -114,8 +115,11 @@ class Contacts extends Component {
     
         let {contacts, loading} = this.props;
         if (loading) {
-            return <div>Loading...</div>;
+            return <div className = "loading">
+                        <CircularProgress/>
+                    </div>
         }
+        console.log("contacts!!!!!!!! : ",contacts)
         contacts = contacts.filter(value => Object.keys(value).length !== 0);
         return (
          <div>
@@ -182,7 +186,6 @@ class Contacts extends Component {
                     </TableRow>
                     </TableHead>
                     <TableBody>
-                        {console.log("contacts : ", contacts)}
                     {contacts.map(contact => (
                         <StyledTableRow key={contact._id}>
                             <StyledTableCell component="th" scope="row">{contact.name}</StyledTableCell>

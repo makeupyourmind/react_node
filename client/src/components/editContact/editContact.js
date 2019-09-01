@@ -1,5 +1,5 @@
 import React, { Component } from 'react'; 
-import { TextField, Button, Container } from '@material-ui/core';
+import { TextField, Button, Container, CircularProgress, Tooltip } from '@material-ui/core';
 import { connect } from "react-redux";
 import { Link, withRouter } from 'react-router-dom';
 import {getContactById, editContactById} from '../../actions/contact/contact';
@@ -41,14 +41,23 @@ class EditContact extends Component {
     submit = e => {
         e.preventDefault();
         const id = this.props.location.pathname.split('/')[2];
-        console.log("AA : ",this.state.name)
-        this.props.editContactById(id, this.state.name, this.state.age, this.state.number)
+        if(this.state.name === ''){
+            let name = document.getElementById('outlined-name').value;
+            let age = document.getElementById('outlined-age').value;
+            let number = document.getElementById('outlined-number').value;
+            this.props.editContactById(id, name, age, number)
+        }
+        else{
+            this.props.editContactById(id, this.state.name, this.state.age, this.state.number)
+        }
     }
 
     render() {
         let {contact, loading} = this.props;
         if (loading) {
-            return <div>Loading...</div>;
+            return <div className = "loading">
+                        <CircularProgress/>
+                    </div>
         }
         
         // console.log("contact : ", contact);
@@ -70,7 +79,7 @@ class EditContact extends Component {
                     <div className = "field">
                         <label className = "label">Number</label>
                         <TextField
-                            id="outlined-name"
+                            id="outlined-number"
                             required
                             defaultValue = {contact.number}
                             onChange = {this.onChange}
@@ -82,7 +91,7 @@ class EditContact extends Component {
                     <div className = "field">
                         <label className = "label">Age</label>
                         <TextField
-                            id="outlined-name"
+                            id="outlined-age"
                             required
                             defaultValue = {contact.age}
                             onChange = {this.onChange}
@@ -94,6 +103,11 @@ class EditContact extends Component {
                     <div className = "button">
                         <Button variant="contained" color="primary" className = 'button' type = 'submit'>
                             Edit
+                        </Button>
+                    </div>
+                    <div className = "button">
+                        <Button variant="contained" color="primary" className = 'button'>
+                            <Link to = '/home' className='navigation'>Cancel</Link>
                         </Button>
                     </div>
                 </form>

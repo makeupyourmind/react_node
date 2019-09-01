@@ -11,7 +11,7 @@ app.use(cors());
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
-mongoose.connect(peocess.env.DB_CONNECT, {useNewUrlParser: true}, function(err){
+mongoose.connect(process.env.DB_CONNECT, {useNewUrlParser: true}, function(err){
   if(err){
     console.log('Erro connect to DB', err);
   }
