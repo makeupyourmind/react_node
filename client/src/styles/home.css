@@ -1,0 +1,19 @@
+.welcome{
+    text-align: center;
+    margin-top: 20px;
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif; 
+    font-size: 17px; 
+}
+
+.logout{
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif; 
+    font-size: 18px;    
+    position: relative; 
+    float: right;
+    bottom: 30px; 
+    right: 20px;
+}
+
+.navigation{
+    text-decoration: none;
+}

@@ -1,0 +1,25 @@
+.form{
+    border: 1px solid red;
+    width: 600px;
+    margin: 90px auto;
+    height: 400px;
+}
+
+.field{
+    margin: 0 auto;
+    width: 400px;
+    width: 300px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.button{
+    border: 1px solid red;
+    margin: 30px auto; 
+    width: 200px;
+}
+
+.label {
+    height: 20px;
+    margin-top: 25px; 
+}

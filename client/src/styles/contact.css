@@ -1,0 +1,31 @@
+.table{
+    width: 700px;
+    margin: 30px auto;
+}
+
+.addContact{
+    display: flex;
+    justify-content: space-around;
+    width: 70%;
+    margin: 20px auto
+}
+
+.custom{
+    width: 200px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.search_field{
+    width: 700px;
+}
+
+.search{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+.navigantion {
+    text-decoration: none;
+}

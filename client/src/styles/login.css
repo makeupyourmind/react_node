@@ -1,0 +1,33 @@
+.container{
+    margin: 10px auto;
+    text-align: center;
+}
+
+.headContainer{
+    margin: 7% auto;
+    height: 400px;
+}
+
+.button{
+    width: 71%;
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+}
+
+.forgot{
+    width: 380px;
+    margin: 0 auto;
+    text-align: right;
+    font-size: 14px;
+}
+
+.navigantion {
+    text-decoration: none;
+}
+
+.logIn{
+    text-align: center;
+    font-size: 18px;
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    text-transform: uppercase;
+    font-weight: 700;
+}
