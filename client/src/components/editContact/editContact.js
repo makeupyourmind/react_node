@@ -41,11 +41,12 @@ class EditContact extends Component {
     submit = e => {
         e.preventDefault();
         const id = this.props.location.pathname.split('/')[2];
-        if(this.state.name === ''){
+        if(this.state.name === '' || this.state.age === '' || this.state.number === ''){
             let name = document.getElementById('outlined-name').value;
             let age = document.getElementById('outlined-age').value;
             let number = document.getElementById('outlined-number').value;
             this.props.editContactById(id, name, age, number)
+                                        .then(() => this.props.history.push('/home'))
         }
         else{
             this.props.editContactById(id, this.state.name, this.state.age, this.state.number)
