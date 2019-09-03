@@ -57,7 +57,7 @@ class ContactController {
             let find = await Contact.find({name: {$regex : req.query.value }, userId: req.user._id});
             res.status(200).json({message: "Success", find})
         } catch (error) {
-            res.status(400).json(error.message)
+            res.status(404).json({message: error.message})
         }
     }
 }

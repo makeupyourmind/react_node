@@ -24,6 +24,7 @@ export const getAllContacts = () => {
               }
         })
         .then(res => {
+            // console.log("RES AFTER GET ALL : ", res.data)
             dispatch(getAllContactActionSuccess(res));
         })
         .catch(error => {
@@ -99,7 +100,7 @@ export const addContact = (name, number, age, userId) => {
 
 
 export const deleteContact = (id, userId) => {
-    console.log("userId : ", userId)
+    // console.log("userId : ", userId)
     return dispatch => {
         return API.delete(`/contacts/${id}`, {
             data: {
@@ -119,8 +120,8 @@ export const deleteContact = (id, userId) => {
 
 export const search = (value) => {
     return dispatch => {
-        console.log("value : ", value);
-        return API.get(`/contacts/search`, {
+        // console.log("value : ", value);
+        return API.get(`/contacts/search/contact`, {
             headers: {
                 "Authorization": `Bearer ${localStorage.getItem('token')}`,
             },
@@ -131,6 +132,9 @@ export const search = (value) => {
         .then(res => {
             console.log("res search", res.data.find)
             dispatch(searchContactActionSuccess(res.data.find));
+        })
+        .catch(error => {
+            console.log("error : ", error.message);
         })
     }
 }

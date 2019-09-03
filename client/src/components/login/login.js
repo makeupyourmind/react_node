@@ -16,18 +16,6 @@ const useStyles = theme => ({
     }
 });
 
-const mapStateToProps = state => {
-    return {
-        auth: state.authReducer
-    };
-};
-
-const mapDispatchToProps = dispatch => {
-    return {
-        login: (password, email, history) =>
-            dispatch(login(password, email, history))
-    };
-};
 
 class Login extends Component {
 
@@ -39,30 +27,6 @@ class Login extends Component {
 
     onChange = (e) => {
         this.setState({ [e.target.name]: e.target.value });
-
-        // switch (e.target.name) {
-        //     case "email":
-        //         if (emailPattern.test(e.target.value)) {
-        //             this.setState({
-        //                 error: ""
-        //             });
-        //         } else
-        //             this.setState({
-        //                 error: "Enter your e-mail"
-        //             });
-        //         break;
-        //     case "password":
-        //         if (e.target.value.length < 5) {
-        //             this.setState({
-        //                 error: "Password is too short"
-        //             });
-        //         } else {
-        //             this.setState({
-        //                 error: ""
-        //             });
-        //         }
-        //         break;
-        // }
     }
 
     submit = e => {
@@ -135,6 +99,19 @@ class Login extends Component {
         )
     }
 }
+
+const mapStateToProps = state => {
+    return {
+        auth: state.authReducer
+    };
+};
+
+const mapDispatchToProps = dispatch => {
+    return {
+        login: (password, email, history) =>
+            dispatch(login(password, email, history))
+    };
+};
 
 export default withRouter(
     connect(

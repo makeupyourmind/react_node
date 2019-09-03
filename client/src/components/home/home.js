@@ -5,18 +5,6 @@ import { Link } from 'react-router-dom';
 import Contacts from '../contact/contacts';
 import '../../styles/home.css';
 
-const mapStateToProps = state => {
-    return {
-        auth: state.authReducer
-    };
-};
-
-const mapDispatchToProps = dispatch => {
-    return {
-        authorizated: () => dispatch(authorizated()),
-        logout: () => dispatch(logout()),
-    };
-};
 
 class Home extends Component {
 
@@ -47,6 +35,19 @@ class Home extends Component {
         )
     }
 }
+
+const mapStateToProps = state => {
+    return {
+        auth: state.authReducer
+    };
+};
+
+const mapDispatchToProps = dispatch => {
+    return {
+        authorizated: () => dispatch(authorizated()),
+        logout: () => dispatch(logout()),
+    };
+};
 
 export default connect(
     mapStateToProps,

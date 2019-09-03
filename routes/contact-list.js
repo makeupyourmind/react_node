@@ -11,6 +11,6 @@ router.get('/', verifyTokenAvailable, verifyRole(Roles.User, Roles.Admin), Conta
 router.get('/:id', verifyTokenAvailable, verifyRole(Roles.User, Roles.Admin), ContactController.getById);
 router.patch('/:id', verifyTokenAvailable, verifyRole(Roles.User, Roles.Admin), ContactController.updateById);
 router.delete('/:id', ContactController.deleteById);
-router.get('/search', verifyTokenAvailable, verifyRole(Roles.User, Roles.Admin), ContactController.search)
+router.get('/search/contact', verifyTokenAvailable, verifyRole(Roles.User, Roles.Admin), ContactController.search);
 
 export default router;

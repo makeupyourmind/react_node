@@ -16,7 +16,6 @@ export default function(state = initialState, action) {
         }
         case ACTION.GET_ALL_CONTACTS_SUCCESS: 
            return {
-                ...state,
                 contacts: action.payload.data,
                 loading: false
         }

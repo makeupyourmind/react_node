@@ -15,19 +15,6 @@ const useStyles = theme => ({
     }
 });
 
-const mapStateToProps = state => {
-    // return {
-    //     auth: state.authReducer
-    // };
-};
-
-const mapDispatchToProps = dispatch => {
-    return {
-        signUp: (password, email, history) =>
-            dispatch(signUp(password, email, history))
-    };
-};
-
 
 class SignUp extends Component {
 
@@ -132,6 +119,20 @@ class SignUp extends Component {
         )
     }
 }
+
+
+const mapStateToProps = state => {
+    // return {
+    //     auth: state.authReducer
+    // };
+};
+
+const mapDispatchToProps = dispatch => {
+    return {
+        signUp: (password, email, history) =>
+            dispatch(signUp(password, email, history))
+    };
+};
 
 export default withRouter(
     connect(

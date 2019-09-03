@@ -1,5 +1,5 @@
 import React, { Component } from 'react'; 
-import { TextField, Button, Container, CircularProgress, Tooltip } from '@material-ui/core';
+import { TextField, Button} from '@material-ui/core';
 import { connect } from "react-redux";
 import { Link, withRouter } from 'react-router-dom';
 import {getContactById, editContactById} from '../../actions/contact/contact';
@@ -7,15 +7,17 @@ import '../../styles/editContact.css'
 
 
 const mapStateToProps = state => {
+    console.log("STATE : ", state.contactReducer);
     return {
-        contact: state.contactReducer.contact,
-        loading: state.contactReducer.loading
+        // contact: state.contactReducer.contact,
+        // loading: state.contactReducer.loading,
+        contacts: state.contactReducer.contacts
     };
 };
 
 const mapDispatchToProps = dispatch => {
     return {
-        getContactById: (id) => dispatch(getContactById(id)),
+        // getContactById: (id) => dispatch(getContactById(id)),
         editContactById: (id, name, age, number) => dispatch(editContactById(id, name, age, number))
     };
 };
@@ -28,10 +30,10 @@ class EditContact extends Component {
         number: ''
     }
 
-    componentWillMount(){
-        const id = this.props.location.pathname.split('/')[2]
-        this.props.getContactById(id)
-    }
+    // componentWillMount(){
+    //     const id = this.props.location.pathname.split('/')[2]
+    //     this.props.getContactById(id)
+    // }
 
     onChange = (e) => {
         console.log(e.target.value);
@@ -54,12 +56,16 @@ class EditContact extends Component {
     }
 
     render() {
-        let {contact, loading} = this.props;
-        if (loading) {
-            return <div className = "loading">
-                        <CircularProgress/>
-                    </div>
-        }
+        let {contacts} = this.props;
+        const id = this.props.location.pathname.split('/')[2]
+        console.log("THIS PROPS contacts : ", contacts);
+        let contact = contacts.filter((item) => item._id === id);
+        console.log("CONTACT : ", contact);
+        // if (loading) {
+        //     return <div className = "loading">
+        //                 <CircularProgress/>
+        //             </div>
+        // }
         
         // console.log("contact : ", contact);
         return (
@@ -70,7 +76,7 @@ class EditContact extends Component {
                         <TextField
                             id="outlined-name"
                             required
-                            defaultValue = {contact.name}
+                            defaultValue = {contact[0].name}
                             onChange = {this.onChange}
                             margin="normal"
                             variant="outlined"
@@ -82,7 +88,7 @@ class EditContact extends Component {
                         <TextField
                             id="outlined-number"
                             required
-                            defaultValue = {contact.number}
+                            defaultValue = {contact[0].number}
                             onChange = {this.onChange}
                             margin="normal"
                             variant="outlined"
@@ -94,7 +100,7 @@ class EditContact extends Component {
                         <TextField
                             id="outlined-age"
                             required
-                            defaultValue = {contact.age}
+                            defaultValue = {contact[0].age}
                             onChange = {this.onChange}
                             margin="normal"
                             variant="outlined"
