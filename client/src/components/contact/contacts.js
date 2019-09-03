@@ -23,14 +23,6 @@ class Contacts extends Component {
                                 });
     }
 
-    componentWillReceiveProps(nextProps) {
-
-        if (nextProps.contact) {
-          this.props.contacts.push(nextProps.contact);
-        }
-
-    }
-
     onChange = (e) => {
         this.setState({ [e.target.name]: e.target.value });
         switch (e.target.name) {
@@ -62,7 +54,7 @@ class Contacts extends Component {
         const userId = this.props.auth.user._id;
         this.props.addContact(this.state.name, this.state.number, this.state.age, userId)
                         .catch((error) => {
-                            console.log("error : ", error) 
+                            // console.log("error : ", error) 
                             this.setState({error: 'Invalid values'})
                         })
      }
@@ -76,7 +68,6 @@ class Contacts extends Component {
                         <CircularProgress/>
                     </div>
         }
-        // console.log("contacts!!!!!!!! : ",contacts)
         return (
                 <div>
                     <div className="err">
@@ -93,7 +84,6 @@ class Contacts extends Component {
 
 
 const mapStateToProps = state => {
-    // console.log("state.contactReducer.contacts : ", state.contactReducer.contacts);
     return {
         contacts: state.contactReducer.contacts,
         loading: state.contactReducer.loading,

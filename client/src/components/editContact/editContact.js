@@ -48,7 +48,10 @@ class EditContact extends Component {
             let age = document.getElementById('outlined-age').value;
             let number = document.getElementById('outlined-number').value;
             this.props.editContactById(id, name, age, number)
-                                        .then(() => this.props.history.push('/home'))
+                                        .then(() => { 
+                                            console.log('edited');
+                                            this.props.history.push('/home')
+                                        })
         }
         else{
             this.props.editContactById(id, this.state.name, this.state.age, this.state.number)
@@ -61,13 +64,6 @@ class EditContact extends Component {
         console.log("THIS PROPS contacts : ", contacts);
         let contact = contacts.filter((item) => item._id === id);
         console.log("CONTACT : ", contact);
-        // if (loading) {
-        //     return <div className = "loading">
-        //                 <CircularProgress/>
-        //             </div>
-        // }
-        
-        // console.log("contact : ", contact);
         return (
             <div>
                 <form onSubmit = {this.submit} className = "form">

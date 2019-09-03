@@ -42,7 +42,7 @@ export default function(state = initialState, action) {
         case ACTION.EDIT_CONTACT_SUCCESS : {
             return {
                 ...state,
-                contact: action.payload
+                contacts: state.contacts.map(contact => contact._id === action.payload._id ?  {...contact } : contact)
             }
         }
         case ACTION.FAILED_EDIT_CONTACT : {
@@ -54,14 +54,15 @@ export default function(state = initialState, action) {
         case ACTION.ADD_CONTACT: {
             return {
                 ...state,
-                contact: action.payload
+                contacts: [...state.contacts, action.payload]
+                // contact: action.payload
             }
         }
         case ACTION.FAILED_ADD_CONTACT : {
             return {
                 ...state,
                 err: action.err,
-                contact: {}
+                contacts: [...state.contacts]
             }
         }
         case ACTION.DELETED_CONTACT_SUCCESS : {
