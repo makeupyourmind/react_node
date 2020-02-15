@@ -14,7 +14,7 @@
     "redux-localstorage-simple": "^2.1.6",
     "redux-thunk": "^2.3.0",
     "save": "^2.4.0",
-    "yarn": "^1.17.3"
+    "yarn": "^1.22.0"
   },
   "scripts": {
     "start": "react-scripts start",
